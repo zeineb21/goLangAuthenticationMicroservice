@@ -1,0 +1,6 @@
+database:
+  url: "cassandra:9042"
+  keyspace: "sec"
+
+host:
+  port: "8080"

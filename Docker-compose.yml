@@ -1,0 +1,29 @@
+version: '3.6'
+services:
+   app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    expose:
+      - "8080"
+    volumes:
+      - .:/go/src/securityMS
+    container_name: SecurityMicroS
+    environment:
+      - 'DB_PORT=9046'
+      - 'DB_HOST=cassandra'
+      - CASSANDRA_SEEDS=cassandra
+      - CASSANDRA_PASSWORD_SEEDER=yes
+      - CASSANDRA_PASSWORD=cassandra 
+    networks:
+      - assortalloc-network
+networks:
+  assortalloc-network:
+    external:
+      name: assortalloc-network
+
+
+    
+    
